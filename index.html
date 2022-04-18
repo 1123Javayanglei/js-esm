@@ -12,7 +12,9 @@
         Count is: {{ count }}
     </button>
     <br>
-    <el-button>{{ message }}</el-button>
+    <el-button @click="count++">{{ message }} count is {{ count }}</el-button>
+    <br>
+    <el-calendar v-model="value"/>
 </div>
 </body>
 </html>

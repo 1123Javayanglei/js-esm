@@ -1,21 +1,28 @@
-import {createApp} from './node_modules/vue3/vue.esm-browser.js';
+import * as Vue from './node_modules/vue3/vue.esm-browser.js';
 
-import {ElButton} from './node_modules/element-plus/index.full.mjs';
-
-
+import Element from './node_modules/element-plus/index.full.mjs';
 
 
+let ref = Vue.ref;
 
-let app = createApp({
-    data() {
+
+let app = Vue.createApp({
+    /**
+     * https://v3.cn.vuejs.org/guide/composition-api-setup.html#%E5%8F%82%E6%95%B0
+     * @param prpos
+     * @param context
+     * @return {{visible: boolean, count: number, message: string, value: (*|RefImpl)}}
+     */
+    setup(prpos, context) {
+        let value = ref(new Date());
+        let count = ref(0);
+        let message = "你好";
         return {
-            message:"你好",
-            visible:false,
-            count: 0
+            message, count, value
         }
-    }
+    },
 });
 
-app.use(ElButton);
+app.use(Element);
 
 app.mount('#app');
